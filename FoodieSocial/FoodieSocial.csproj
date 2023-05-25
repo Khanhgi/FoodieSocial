@@ -221,10 +221,11 @@
     <Content Include="Views\Friend\AddFriend.cshtml" />
     <Content Include="Views\Friend\AcceptFriendRequest.cshtml" />
     <Content Include="Views\Friend\CancelFriendRequest.cshtml" />
+    <Content Include="Views\Post\CreatePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Post\" />
+    <Folder Include="MediaFiles\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

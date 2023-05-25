@@ -46,7 +46,7 @@ namespace FoodieSocial.Controllers
                         context.SaveChanges();
                     }
 
-                    // Điều hướng người dùng đến trang hiển thị bài đăng hoặc trang chủ
+                    // Điều hướng người dùng đến trang hiển thị bài đăng 
                     return RedirectToAction("Index", "Home");
                 }
                 else
