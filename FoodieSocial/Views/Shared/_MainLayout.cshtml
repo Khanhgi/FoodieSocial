@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#createPostForm").submit(function(e) {
+            e.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+            // Lấy giá trị của các trường nhập liệu
+            var writtenText = $("#Writtentext").val();
+            var mediaImage = $("#Mediaimage").val();
+            var mediaVideo = $("#Mediavideo").val();
+
+            // Tạo HTML cho section mới
+            var sectionHTML = `
+            <section>
+                <div class="wrapper">
+                    <div class="header-wrap">
+                        <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                        <div class="title">
+                            <span style="margin-left: 10px;">@Session["UserName"]</span>
+                        </div>
+                    </div>
+                    <div class="body-wrap">
+                        <img src="${mediaImage}" alt="">
+                    </div>
+                    <div class="body-title">
+                        <div class="wrapper-body">
+                            <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                        <div class="wrapper-body">
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                    </div>
+                    <div class="comment" style="margin-top: 15px;">
+                        <span>${writtenText}</span>
+                    </div>
+                    <div class="sm-title">
+                        <div class="center-title">
+                           <input style=" width: 342px;"  placeholder="Add comments"/><button type="submit" value="Save"> <i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+            </section>
+            `;
+
+            // Thêm section mới vào DOM
+            $("#postsContainer").append(sectionHTML);
+
+            // Xóa giá trị của các trường nhập liệu
+            $("#Written_text").val("");
+            $("#Media_image").val("");
+            $("#Media_video").val("");
+        });
+    });
+    </script>
+
+</head>
+<body>
+    <div id="posts-container" class="postContainer">
+        <section class="postSection">
+            <div class="wrapper">
+                <div class="header-wrap">
+                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                    <div class="title">
+                        <span style="margin-left: 10px; ">@Session["UserName"]</span>
+                    </div>
+                </div>
+                <div class="body-wrap">
+                    <img src="~/Content/Images/food.jpg" alt="">
+                </div>
+                <div class="body-title">
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="comment" style="margin-top: 15px;">
+                    <span>
+                        Welcome to Foodie Social
+                    </span>
+                </div>
+                <div class="sm-title">
+                    <div class="center-title">
+                        <input style=" width: 342px; height: 44px; border-radius: 10px;" placeholder="Add comment" /><button type="submit" value="Save"> <i class="fa-regular fa-paper-plane"></i></button>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </section>
+        <section class="postSection">
+            <div class="wrapper">
+                <div class="header-wrap">
+                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                    <div class="title">
+                        <span style="margin-left: 10px; ">@Session["UserName"]</span>
+                    </div>
+                </div>
+                <div class="body-wrap">
+                    <img src="~/Content/Images/food2.jpg" alt="">
+                </div>
+                <div class="body-title">
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="comment" style="margin-top: 15px;">
+                    <span>
+                        Welcome to Foodie Social
+                    </span>
+                </div>
+                <div class="sm-title">
+                    <div class="center-title">
+                        <input style=" width: 342px; height: 44px; border-radius: 10px;" placeholder="Add comment" /><button type="submit" value="Save"> <i class="fa-regular fa-paper-plane"></i></button>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </section>
+        <section class="postSection">
+            <div class="wrapper">
+                <div class="header-wrap">
+                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                    <div class="title">
+                        <span style="margin-left: 10px; ">@Session["UserName"]</span>
+                    </div>
+                </div>
+                <div class="body-wrap">
+                    <img src="~/Content/Images/food3.jpg" alt="">
+                </div>
+                <div class="body-title">
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="comment" style="margin-top: 15px;">
+                    <span>
+                        Welcome to Foodie Social
+                    </span>
+                </div>
+                <div class="sm-title">
+                    <div class="center-title">
+                        <input style=" width: 342px; height: 44px; border-radius: 10px;" placeholder="Add comment" /><button type="submit" value="Save"> <i class="fa-regular fa-paper-plane"></i></button>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </section>
+        <section class="postSection">
+            <div class="wrapper">
+                <div class="header-wrap">
+                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                    <div class="title">
+                        <span style="margin-left: 10px; ">@Session["UserName"]</span>
+                    </div>
+                </div>
+                <div class="body-wrap">
+                    <img src="~/Content/Images/banhmi.jpeg" alt="">
+                </div>
+                <div class="body-title">
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                    <div class="wrapper-body">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="comment" style="margin-top: 15px;">
+                    <span>
+                        Welcome to Foodie Social
+                    </span>
+                </div>
+                <div class="sm-title">
+                    <div class="center-title">
+                        <input style=" width: 342px; height: 44px; border-radius: 10px;" placeholder="Add comment" /><button type="submit" value="Save"> <i class="fa-regular fa-paper-plane"></i></button>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+
+
+

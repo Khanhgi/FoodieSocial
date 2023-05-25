@@ -1,0 +1,112 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 62.5%;
+}
+
+main {
+    font-family: sans-serif, arial, helvetica;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    border-radius: 50%;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+    .title span {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+.wrapper {
+    width: 400px;
+    height: 450px;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.body-wrap {
+    width: 100%;
+    text-align: center;
+}
+
+    .body-wrap img {
+        width: 400px;
+        margin: 1rem 0;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+.body-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-body i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+    .wrapper-body i + i {
+        margin: 0 1rem;
+    }
+
+.center-title {
+    text-align: center;
+}
+
+.sm-title {
+    margin: 1rem 0;
+}
+
+    .sm-title span {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sm-title i {
+        width: 90%;
+        border: 1px solid #f0f0f0;
+        padding: .7rem;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+.center-title button {
+    border: 1px solid #f0f0f0;
+    padding: .7rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 2px;
+}
+
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các section */
+}
+
+.postSection:nth-child(even) {
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,24 @@
+﻿
+<div id="side_nav">
+    <div class="container">
+        <header class="header">
+            <a href="" class="logo">
+                <!-- thêm ảnh logo -->
+                <img src="~/Content/Images/loginlogo.png" alt="Website logo" />
+            </a>
+
+            <nav class="navbar-head">
+                <a href="@Url.Action("Search", "Account")"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+                <a href="#"><i class="fa-sharp fa-solid fa-comments"></i>Chat</a>
+                <a href="@Url.Action("CreatePost", "Post")"><i class="fa-solid fa-circle-plus"></i>Post</a>
+                <a href="#" onclick="redirectToDetail()"><i class="fa-solid fa-user"></i>Your Profile</a>
+            </nav>
+
+            <div class="icons">
+                <a href="@Url.Action("Login","Account")"><i class="fa-solid fa-right-from-bracket"></i>Logout account</a>
+            </div>
+
+        </header>
+
+    </div>
+</div>

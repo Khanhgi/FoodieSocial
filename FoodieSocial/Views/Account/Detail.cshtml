@@ -1,0 +1,238 @@
+﻿@model FoodieSocial.Models.User_profile
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    function redirectToEditProfile() {
+        // Lấy ID người dùng từ phiên làm việc
+        var userId = @Session["UserId"];
+
+        // Chuyển hướng đến trang "Detail" với ID người dùng truyền qua query string
+        window.location.href = '/Account/EditProfile?id=' + userId;
+    }
+    </script>
+</head>
+<body>
+    <section style="background-color: #fff; height: 100%; padding: 20px;">
+        <h2>Detail Information</h2>
+        <hr style="font-weight: bold;" />
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="@Url.Content("~/Content/Images/avadefault.jpg")" alt="Avatar"
+                             class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3">@Html.DisplayFor(model => model.Name)</h5>
+                        <p class="text-muted mb-4">@Html.DisplayFor(model => model.Country)</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            @if (!ViewBag.IsOwner)
+                            {
+                                <button id="btnAddFriend" type="button" class="btn btn-outline-primary ms-1" data-friend-id="@Model.Id">Send Friend Request</button>
+                                <button id="btnCancelRequest" type="button" class="btn btn-outline-primary ms-1" style="display: none;">Cancel Request</button>
+                                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                            }
+                            @if (ViewBag.CanEditProfile)
+                            {
+                                <input id="changeAvatarButton" type="file" class="btn btn-outline-primary ms-1" style="display: none;" />
+                                <label for="changeAvatarButton" class="btn btn-outline-primary ms-1">Change Avatar</label>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body2">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Full Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Name)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Email)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Phone</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.PhoneNumber)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Country</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Country)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Gender</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Gender)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Birthday</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Date_of_birth)</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div>
+                            @if (ViewBag.CanEditProfile)
+                            {
+                                <button class="btn btn-outline-primary ms-2" onclick="redirectToEditProfile()">Edit profile</button>
+                            }
+                            <button class="btn btn-outline-primary ms-2" onclick="location.href='@Url.Action("Index", "Home")'">Back to Main page</button>
+                            @if (!ViewBag.IsOwner)
+                            {
+                                <button class="btn btn-outline-primary ms-2" onclick="location.href='@Url.Action("Search", "Account")'">Back to Search page</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(function () {
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+
+            $('#fileUpload').change(function () {
+                if (window.FormData !== undefined) {
+                    var fileUpload = $('#fileUpload').get(0);
+                    var files = fileUpload.files;
+                    var formData = new FormData();
+                    formData.append('file', files[0]);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Account/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            // Gửi đường dẫn ảnh lên server
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Account/SaveAvatar',
+                                data: { avatarUrl: urlImage },
+                                success: function () {
+                                    // Cập nhật đường dẫn ảnh trong thẻ <img>
+                                    $('#avatarImage').attr('src', urlImage);
+                                },
+                                error: function (err) {
+                                    alert('Error: ' + err.statusText);
+                                }
+                            });
+                        },
+                        error: function (err) {
+                            alert('Error: ' + err.statusText);
+                        }
+                    });
+                }
+            });
+    </script>
+
+    <script>
+        $(function () {
+            // Gửi yêu cầu kết bạn
+            $('#btnAddFriend').click(function () {
+                var receiverId = $(this).data('friend-id');
+                var button = $(this);
+
+                $.ajax({
+                    url: '/Friend/AddFriend',
+                    type: 'POST',
+                    data: { receiverId: receiverId },
+                    success: function (result) {
+                        if (result.success) {
+                            alert(result.message);
+                            // Cập nhật trạng thái bạn bè và hiển thị nút tương ứng
+                            $('#btnAddFriend').hide();
+                            $('#btnCancelRequest').show();
+                        } else {
+                            alert(result.message);
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred');
+                    }
+                });
+            });
+
+            // Hủy yêu cầu kết bạn
+            $('#btnCancelRequest').click(function () {
+                var receiverId = $(this).data('friend-id');
+
+                $.ajax({
+                    url: '/Friend/CancelFriendRequest',
+                    type: 'POST',
+                    data: { receiverId: receiverId },
+                    success: function (result) {
+                        if (result.success) {
+                            alert(result.message);
+                            // Cập nhật trạng thái bạn bè và hiển thị nút tương ứng
+                            $('#btnAddFriend').show();
+                            $('#btnCancelRequest').hide();
+                        } else {
+                            alert(result.message);
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <style>
+        .card-body2 {
+            background-color: #fff;
+        }
+
+        .card-body {
+            background-color: #fff;
+        }
+
+        .row p {
+            color: black;
+        }
+    </style>
+</body>
+</html>

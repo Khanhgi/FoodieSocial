@@ -1,0 +1,49 @@
+﻿@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #side_nav.collapsed {
+        width: 100px; /* Đặt chiều rộng tùy ý */
+    }
+
+        #side_nav.collapsed .navbar-head a {
+            display: none; /* Ẩn các mục điều hướng */
+        }
+
+        #side_nav.collapsed .logo img {
+            display: none; /* Ẩn logo */
+        }
+
+        #side_nav.collapsed .toggle-button {
+            justify-content: flex-end; /* Đặt vị trí nút toggle bên phải */
+        }
+
+        #side_nav.collapsed .toggle-icon::before {
+            content: "☰"; /* Thay đổi biểu tượng toggle thành biểu tượng menu */
+        }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=Poppins:wght@400;500;600&display=swap');
