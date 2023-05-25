@@ -172,7 +172,6 @@
             // Gửi yêu cầu kết bạn
             $('#btnAddFriend').click(function () {
                 var receiverId = $(this).data('friend-id');
-                var button = $(this);
 
                 $.ajax({
                     url: '/Friend/AddFriend',

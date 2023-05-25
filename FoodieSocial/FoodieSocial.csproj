@@ -220,6 +220,7 @@
     <Content Include="Views\Shared\_Sidenav.cshtml" />
     <Content Include="Views\Friend\AddFriend.cshtml" />
     <Content Include="Views\Friend\AcceptFriendRequest.cshtml" />
+    <Content Include="Views\Friend\CancelFriendRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

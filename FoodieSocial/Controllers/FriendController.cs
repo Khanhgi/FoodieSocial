@@ -93,24 +93,33 @@ namespace FoodieSocial.Controllers
         [HttpPost]
         public ActionResult CancelFriendRequest(int receiverId)
         {
-            // Lấy người dùng hiện tại từ phiên làm việc hoặc thông qua hệ thống xác thực
-            int currentUserId = GetCurrentUserId(); // Hàm này cần được cài đặt để lấy ID của người dùng hiện tại
-
-            // Tìm yêu cầu kết bạn trong danh sách bạn bè chưa chấp nhận của người dùng hiện tại
-            Friend friendRequest = fs.Friends.FirstOrDefault(f => f.Profileid == currentUserId && f.Profilerequest == receiverId.ToString() && f.Status == 0);
-            if (friendRequest != null)
+            try
             {
-                // Xóa yêu cầu kết bạn
-                fs.Friends.Remove(friendRequest);
-                fs.SaveChanges();
+                // Lấy người dùng hiện tại từ phiên làm việc hoặc thông qua hệ thống xác thực
+                int currentUserId = GetCurrentUserId(); // Hàm này cần được cài đặt để lấy ID của người dùng hiện tại
 
-                // Trả về kết quả thành công và thông báo
-                return Json(new { success = true, message = "Friend request canceled successfully." });
+                // Tìm yêu cầu kết bạn trong danh sách bạn bè chưa chấp nhận của người dùng hiện tại
+                Friend friendRequest = fs.Friends.FirstOrDefault(f => f.Profileid == currentUserId && f.Profilerequest == receiverId.ToString() && f.Status == 0);
+                if (friendRequest != null)
+                {
+                    // Xóa yêu cầu kết bạn
+                    fs.Friends.Remove(friendRequest);
+                    fs.SaveChanges();
+
+                    // Trả về kết quả thành công và thông báo
+                    return Json(new { success = true, message = "Friend request canceled successfully." });
+                }
+
+                // Trả về kết quả không thành công và thông báo
+                return Json(new { success = false, message = "Friend request not found." });
             }
-
-            // Trả về kết quả không thành công và thông báo
-            return Json(new { success = false, message = "Friend request not found." });
+            catch (Exception ex)
+            {
+                // Xử lý lỗi
+                return Json(new { success = false, message = "An error occurred: " + ex.Message });
+            }
         }
+
 
 
     }
