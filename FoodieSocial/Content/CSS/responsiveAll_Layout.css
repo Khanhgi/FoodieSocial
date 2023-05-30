@@ -1,4 +1,6 @@
-﻿@media (min-width: 768px) {
+﻿@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=Poppins:wght@400;500;600&display=swap');
+
+@media (min-width: 768px) {
     .gradient-form {
         height: 100vh !important;
     }
@@ -46,4 +48,3 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=Poppins:wght@400;500;600&display=swap');

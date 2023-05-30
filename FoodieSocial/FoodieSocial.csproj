@@ -180,6 +180,8 @@
     <Content Include="Content\Images\food2.jpg" />
     <Content Include="Content\Images\food3.jpg" />
     <Content Include="Content\Images\loginlogo.png" />
+    <Content Include="Content\Images\shushi.jpg" />
+    <Content Include="Content\Images\xx.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -225,7 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="MediaFiles\Images\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

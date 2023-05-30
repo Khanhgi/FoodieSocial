@@ -13,44 +13,82 @@
     <title>CreatePost</title>
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+    @using (Html.BeginForm("CreatePost", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
 
-        <input type="file" class="btn btn-outline-primary ms-1" id="Mediaimage" accept="image/png, image/jpg, image/jpeg" />
+            <input type="file" class="btn btn-outline-primary ms-1, hidden" id="mediaImageFile" accept="image/*" />
 
-        <div id="display_image"></div>
+            <img id="display_image" src="#" class="hidden"/>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-outline-primary ms-1" />
-                <a href="@Url.Action("Index","Home")" class="btn btn-outline-primary ms-1">Back to Main page</a>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-outline-primary ms-1" />
+                    <a href="@Url.Action("Index","Home")" class="btn btn-outline-primary ms-1">Back to Main page</a>
+                </div>
             </div>
-        </div>
-    }
+        }
 
-    <script>
-        const mediaImageFile = document.querySelector("#Mediaimage");
+    @*@using (Html.BeginForm("CreatePost", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 
-        mediaImageFile.addEventListener("change", function () {
-            const file = this.files[0];
-            const reader = new FileReader();
+    {
 
-            reader.addEventListener("load", () => {
-                const imageUrl = reader.result;
+        @Html.TextBox("mediaImageFile", "", new { type = "file", accept = "image/*" })
 
-                const imageElement = document.createElement("img");
-                imageElement.src = imageUrl;
+        <br />
 
-                const displayImageElement = document.querySelector("#display_image");
-                displayImageElement.innerHTML = ""; // Xóa bỏ các ảnh trước đó (nếu có)
-                displayImageElement.appendChild(imageElement);
+        <img id="preview" src="#" width="150" height="100" class="hidden" />
+
+        <br />
+
+        <input type="submit" value="Create" class="btn btn-outline-primary ms-1" />
+
+    }*@
+
+
+    @*<script>
+        const mediaImageFile = document.querySelector("#mediaImageFile");
+
+            mediaImageFile.addEventListener("change", function () {
+                const file = this.files[0];
+                const reader = new FileReader();
+
+                reader.addEventListener("load", () => {
+                    const imageUrl = reader.result;
+
+                    const imageElement = document.createElement("img");
+                    imageElement.src = imageUrl;
+
+                    const displayImageElement = document.querySelector("#display_image");
+                    displayImageElement.innerHTML = ""; // Xóa bỏ các ảnh trước đó (nếu có)
+                    displayImageElement.appendChild(imageElement);
+                });
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
             });
+        </script>*@
+
+    @* script của upload *@
+    <script>
+
+        var mediaImageFile = document.getElementById('mediaImageFile');
+        var display_image = document.getElementById('display_image');
+
+        mediaImageFile.onchange = evt => {
+
+            const [file] = mediaImageFile.files
 
             if (file) {
-                reader.readAsDataURL(file);
+
+                display_image.src = URL.createObjectURL(file);
+
+                $("#display_image").removeClass("hidden");
+
             }
-        });
+
+        }
     </script>
 
     <style>

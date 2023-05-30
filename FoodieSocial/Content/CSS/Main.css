@@ -33,6 +33,7 @@ section {
 .wrapper {
     width: 400px;
     height: 450px;
+    border-radius: 10px;
 }
 
 .header-wrap {
@@ -50,7 +51,7 @@ section {
         margin: 1rem 0;
         height: 250px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 
 .body-title {
@@ -58,8 +59,9 @@ section {
     justify-content: space-between;
 }
 
+
 .wrapper-body i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
@@ -75,38 +77,32 @@ section {
     margin: 1rem 0;
 }
 
-    .sm-title span {
-        margin: 1rem 0;
-        display: flex;
-        flex-direction: column;
+    .sm-title input {
+        width: 400px;
+        border: 0.1px outset;
+        padding: 1rem 0;
+        position: relative;
+        top: 10px;
     }
 
-    .sm-title i {
-        width: 90%;
-        border: 1px solid #f0f0f0;
-        padding: .7rem;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
+.center-title i {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    padding: 0.7rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
-.center-title button {
-    border: 1px solid #f0f0f0;
-    padding: .7rem;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    margin-left: 2px;
+.center-title .input-wrapper{
+    position: relative;
 }
 
 .postContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Khoảng cách giữa các section */
 }
 
 .postSection:nth-child(even) {
-    margin-top: 1.5rem;
+    margin-top: 1.3rem;
 }
