@@ -209,6 +209,5 @@ namespace FoodieSocial.Controllers
             return View(searchResults);
         }
 
-
     }
 }

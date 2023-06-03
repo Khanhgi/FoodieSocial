@@ -9,7 +9,7 @@ namespace FoodieSocial.Controllers
     public class ChatController : Controller
     {
         // GET: Chat
-        public ActionResult Chat()
+        public ActionResult Index()
         {
             return View();
         }

@@ -23,17 +23,9 @@
     </script>
 </head>
 <body>
-    <div class="wrapper_all" style="display:flex">
-        <div id="side_nav" style=" width: 30%;">
-            @RenderPage("_Sidenav.cshtml")
             <div class="container body-content">
                 @RenderBody()
             </div>
-        </div>
-        <div id="posts-container">
-            @RenderPage("_MainLayout.cshtml")
-        </div>
-    </div>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
