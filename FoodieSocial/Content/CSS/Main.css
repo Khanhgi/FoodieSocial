@@ -62,6 +62,7 @@ section {
 
 .status-text {
     padding: 0 16%;
+    height: auto;
 }
 
 
@@ -94,7 +95,7 @@ section {
 .center-title i {
     position: absolute;
     top: 20px;
-    right: 15px;
+    right: 100px;
     padding: 0.7rem;
     border-radius: 10px;
     cursor: pointer;
@@ -107,8 +108,17 @@ section {
 .postContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.postContainer hr{
+    width: 68%;
+    margin: 25px auto;
 }
 
 .postSection:nth-child(even) {
     margin-top: 1.3rem;
 }
+
+
+
