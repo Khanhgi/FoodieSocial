@@ -31,14 +31,14 @@ section {
     }
 
 .wrapper {
-    width: 400px;
-    height: 450px;
+    width: 100% ;
     border-radius: 10px;
 }
 
 .header-wrap {
     display: flex;
     justify-content: flex-start;
+    padding: 0 16%;
 }
 
 .body-wrap {
@@ -57,6 +57,11 @@ section {
 .body-title {
     display: flex;
     justify-content: space-between;
+    padding: 0 16%;
+}
+
+.status-text {
+    padding: 0 16%;
 }
 
 
@@ -80,7 +85,8 @@ section {
     .sm-title input {
         width: 400px;
         border: 0.1px outset;
-        padding: 1rem 0;
+        padding: 1rem 1.5rem;
+        border-radius: 1rem;
         position: relative;
         top: 10px;
     }
