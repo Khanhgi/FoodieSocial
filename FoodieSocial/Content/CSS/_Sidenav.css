@@ -21,19 +21,9 @@ a {
 }
 
 .header {
-    position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #fff;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
-    z-index: 9999 !important;
-    display: flex;
-    flex-direction: column;
+    display:grid;
     max-width: 20%;
     width: 100%;
-    align-items: center;
-    justify-content: space-between;
 }
 
     .header .logo {
@@ -52,7 +42,7 @@ a {
     }
 
         .header .navbar-head a {
-            font-size: 1.6em;
+            font-size: 1.9rem;
             margin: 32px 45px;
             color: black;
         }
@@ -62,12 +52,10 @@ a {
             }
 
     .header .icons a {
-        font-size: 1.6em;
+        font-size: 1.9rem;
         padding: 1rem;
         color: black;
-        /*  display: flex;
-        align-items: center;
-        cursor: pointer;*/
+        margin-left: 35px;
     }
 
     .header .icons i {

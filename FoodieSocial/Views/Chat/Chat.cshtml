@@ -3,7 +3,7 @@
 <style>
     div.panel-body {
         overflow: scroll;
-       /* background: url('http://subtlepatterns.com/patterns/geometry2.png');*/
+        background: url('http://subtlepatterns.com/patterns/geometry2.png');
     }
 </style>
 <div class="chat-panel panel panel-default">
@@ -26,6 +26,7 @@
         </div>
     </div>
 </div>
+
 @section scripts {
     <!--Script references. -->
     <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
@@ -40,14 +41,14 @@
             var chat = $.connection.chatHub;
             // Create a function that the hub can call back to display messages.
             chat.client.addNewMessageToPage = function (name, message) {
-                if (name == "Atir") {
+                if (name == "Admin") {
                     // Add the message to the page.
-                    $('#discussion').append('<p style="color:green; text-align:left; width:500px"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_7.png" title="Atir">'
+                    $('#discussion').append('<p style="color:green; text-align:right; width:500px"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_7.png" title="' + name + '">'
                         + ' </strong> ' + htmlEncode(message) + '</p>');
                 }
-                else if (name != "Atir") {
+                else if (name != "Admin") {
                     // Add the message to the page.
-                    $('#discussion').append('<p style="color:blue;text-align:right;"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_71.png" title="Peter">'
+                    $('#discussion').append('<p style="color:blue;text-align:left;"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_71.png" title="' + name + '">'
                         + ' </strong> ' + htmlEncode(message) + '</p>');
                 }
             };

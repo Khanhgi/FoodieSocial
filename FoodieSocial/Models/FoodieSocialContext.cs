@@ -90,10 +90,6 @@ namespace FoodieSocial.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Friend>()
-                .Property(e => e.Profilerequest)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Friend>()
                 .Property(e => e.Profileblock)
                 .IsFixedLength();
         }

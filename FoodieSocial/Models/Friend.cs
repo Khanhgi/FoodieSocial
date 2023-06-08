@@ -21,15 +21,10 @@ namespace FoodieSocial.Models
         [Key]
         [Column(Order = 2)]
         [StringLength(10)]
-        public string Profilerequest { get; set; }
-
-        [Key]
-        [Column(Order = 3)]
-        [StringLength(10)]
         public string Profileblock { get; set; }
 
         [Key]
-        [Column(Order = 4)]
+        [Column(Order = 3)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Status { get; set; }
 
