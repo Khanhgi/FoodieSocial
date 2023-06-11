@@ -23,9 +23,6 @@ namespace FoodieSocial.Models
         public string Writtentext { get; set; }
 
         [StringLength(255)]
-        public string Mediavideo { get; set; }
-
-        [StringLength(255)]
         public string Mediaimage { get; set; }
 
         public DateTime Createdate { get; set; }

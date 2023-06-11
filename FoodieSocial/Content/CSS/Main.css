@@ -15,10 +15,6 @@ section {
     align-items: center;
 }
 
-.logo {
-    border-radius: 50%;
-}
-
 .title {
     display: flex;
     align-items: center;
@@ -31,14 +27,30 @@ section {
     }
 
 .wrapper {
-    width: 100% ;
+    width: 100%;
     border-radius: 10px;
 }
 
 .header-wrap {
     display: flex;
     justify-content: flex-start;
-    padding: 0 16%;
+    padding: 0 14%;
+}
+
+    .header-wrap .title span{
+        font-size: 1.3rem;
+    }
+
+    .header-wrap .title i {
+        font-size: 1.5rem;
+        position: relative;
+        left: 18.7em;
+        cursor: pointer;
+    }
+
+
+.logo {
+    border-radius: 50%;
 }
 
 .body-wrap {
@@ -95,7 +107,7 @@ section {
 .center-title i {
     position: absolute;
     top: 20px;
-    right: 100px;
+    right: 85px;
     padding: 0.7rem;
     border-radius: 10px;
     cursor: pointer;
@@ -112,7 +124,7 @@ section {
 }
 
 .postContainer hr{
-    width: 68%;
+    width: 73%;
     margin: 25px auto;
 }
 

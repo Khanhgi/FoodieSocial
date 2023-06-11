@@ -87,7 +87,6 @@ namespace FoodieSocial.Controllers
 
 
         }
-        //=========================================================== Register ==========================================================//
 
         //================================================================== Login ==================================================================//
         [HttpGet]
@@ -105,11 +104,11 @@ namespace FoodieSocial.Controllers
             User_profile us = fs.User_profile.FirstOrDefault(u => u.Email == email && u.PassWord == Pass);
             if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(Pass))
             {
-                ViewData["!empty"] = "Please enter information";
+                ViewData["!empty"] = "Please enter your information";
             }
             else if (us == null || us.Email != email || us.PassWord != Pass)
             {
-                ViewData["ErrorAccount"] = "Wrong email or password !";
+                ViewData["ErrorAccount"] = "Wrong email or password. Please check again !";
                 return this.Login();
             }
             else
@@ -121,7 +120,6 @@ namespace FoodieSocial.Controllers
             return this.Login();
         }
 
-        //===================================================================== Login =====================================================================//
 
 
         public ActionResult Logout()
@@ -148,7 +146,6 @@ namespace FoodieSocial.Controllers
             ViewBag.IsOwner = canEditProfile;
             return View(details);
         }
-        //============================================================== Detail ==============================================================//
 
 
         //====================================================== Edit ===================================================================//
@@ -171,10 +168,10 @@ namespace FoodieSocial.Controllers
             var E_ava = collection["Avatar"];
             edits.Id = id;
             if (string.IsNullOrEmpty(E_email) && string.IsNullOrEmpty(E_pass) && string.IsNullOrEmpty(E_name)
-                  && string.IsNullOrEmpty(E_phone) && string.IsNullOrEmpty(E_country)
-                  && string.IsNullOrEmpty(E_dob))
+       && string.IsNullOrEmpty(E_phone) && string.IsNullOrEmpty(E_country)
+       && string.IsNullOrEmpty(E_dob))
             {
-                ViewData["Error"] = "Please input you information";
+                ViewData["Error"] = "Please input your information";
             }
             else
             {
@@ -186,18 +183,20 @@ namespace FoodieSocial.Controllers
                 edits.Country = E_country;
                 edits.Date_of_birth = DateTime.Parse(E_dob);
                 edits.Avatar = E_ava;
-                UpdateModel(edits);
-                // Lưu thông tin người dùng đã cập nhật vào nguồn dữ liệu (ví dụ: cơ sở dữ liệu)
+
                 fs.SaveChanges();
+
                 // Chuyển hướng người dùng đến trang thông tin người dùng sau khi đã cập nhật thành công
                 Session["UserId"] = us.Id;
                 return RedirectToAction("Detail", "Account", new { id = us.Id });
             }
 
+
             // Nếu dữ liệu không hợp lệ, trả về lại view với đối tượng người dùng đã chỉnh sửa để hiển thị thông báo lỗi
             return this.EditProfile(id);
         }
-        //====================================================== Edit ===================================================================//
+
+        //====================================================== Search ===================================================================//
 
         public ActionResult Search(string keyword)
         {
@@ -208,6 +207,5 @@ namespace FoodieSocial.Controllers
             // Trả về kết quả tìm kiếm đến View để hiển thị
             return View(searchResults);
         }
-
     }
 }

@@ -21,33 +21,31 @@ a {
 }
 
 .header {
-    display:grid;
+    display: grid;
     max-width: 20%;
     width: 100%;
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 10px 0px 50px 0px;
 }
 
-    .header .logo {
-        max-width: -1em;
+    .header .logo img {
+        width: 15em;
     }
 
-        .header .logo img {
-            width: 15em;
-        }
-
-    .header .navbar-head {
+    .header .sidebar {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         margin-bottom: -1rem;
     }
 
-        .header .navbar-head a {
+        .header .sidebar a {
             font-size: 1.9rem;
             margin: 32px 45px;
             color: black;
         }
 
-            .header .navbar-head a i {
+            .header .sidebar a i {
                 margin-right: 0.4em;
             }
 
@@ -62,7 +60,7 @@ a {
         margin-right: 0.3em;
     }
 
-.container {
+/*.container {
     display: flex;
     height: 100vh;
-}
+}*/

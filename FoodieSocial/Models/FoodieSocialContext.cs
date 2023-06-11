@@ -34,10 +34,6 @@ namespace FoodieSocial.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<User_post>()
-                .Property(e => e.Mediavideo)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User_post>()
                 .Property(e => e.Mediaimage)
                 .IsUnicode(false);
 

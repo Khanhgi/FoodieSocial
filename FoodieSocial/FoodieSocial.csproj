@@ -200,7 +200,8 @@
     <Content Include="Content\bootstrap\css\bootstrap.rtl.min.css" />
     <Content Include="Content\CSS\Main.css" />
     <Content Include="Content\CSS\responsiveAll_Layout.css" />
-    <Content Include="Content\CSS\_Sidenav.css" />
+    <Content Include="Content\CSS\User-contact.css" />
+    <Content Include="Content\CSS\_Sidebar.css" />
     <Content Include="Content\Images\avadefault.jpg" />
     <Content Include="Content\Images\banhmi.jpeg" />
     <Content Include="Content\Images\food.jpg" />
@@ -279,9 +280,10 @@
     <Content Include="Views\Friend\AddFriend.cshtml" />
     <Content Include="Views\Friend\AcceptFriendRequest.cshtml" />
     <Content Include="Views\Friend\CancelFriendRequest.cshtml" />
-    <Content Include="Views\Post\CreatePost.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Post\Create.cshtml" />
+    <Content Include="Views\Post\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
