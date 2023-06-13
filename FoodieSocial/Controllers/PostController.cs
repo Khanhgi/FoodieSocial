@@ -48,13 +48,18 @@ namespace FoodieSocial.Controllers
                 // Lấy Profileid từ Session
                 int profileId = (int)Session["UserId"];
 
+                // Lấy thông tin người dùng từ bảng User_profile dựa trên Profileid
+                User_profile userProfile = fs.User_profile.FirstOrDefault(u => u.Id == profileId);
+
+
                 // Tạo đối tượng User_post
                 User_post post = new User_post()
                 {
                     Createdate = createDate,
                     Writtentext = writtenText,
                     Mediaimage = fileName,
-                    Profileid = profileId
+                    Profileid = profileId,
+                    User_profile = userProfile
                 };
 
                 // Thêm đối tượng User_post vào cơ sở dữ liệu

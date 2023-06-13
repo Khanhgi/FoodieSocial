@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Main Page</title>
     <link href="~/Content/Css/_Sidebar.css" rel="stylesheet" />
     <link href="~/Content/Css/Main.css" rel="stylesheet" />
     <link href="~/Content/Css/User-contact.css" rel="stylesheet" />
@@ -18,8 +18,8 @@
 
     <div class="wrapper-container" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
         <header class="header">
-            
-                <img src="~/Content/Images/loginlogo.png" alt="Website logo" style="margin-left: 40px; width: 15em;" />
+
+            <img src="~/Content/Images/loginlogo.png" alt="Website logo" style="margin-left: 40px; width: 15em;" />
 
             <nav class="sidebar">
                 <a href="@Url.Action("Search", "Account")"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
@@ -201,16 +201,8 @@
 
         @*=========================================== User Contact ===========================================*@
 
-        <div class="contact-user" style="max-width: 39%; width: 100%;">
-            <div class="card" style="width: 40rem; border-radius: 10px; height: 350px; margin-top: 8rem; margin-left: 20px; border: 1px solid #cbc9c9;">
-                <div class="card-body">
-                    <img src="~/Content/Images/avadefault.jpg" alt="Avatar" style="width: 35px; height: 35px; border-radius: 50%; margin-right: 10px;"> 
-                    <p class="card-text" style="flex: 1;">@Session["UserName"] đã gửi cho bạn lời mời kết bạn</p>
-                </div>
-            </div>
-            <footer>
-                <p style="margin-left: 20px; color: #a2a2a2;">&copy; @DateTime.Now.Year - Võ An Khánh.HUTECH University</p>
-            </footer>
+        <div id="contact_user" style="width: 39%;">
+            @RenderPage("_UserContact.cshtml")
         </div>
     </div>
 

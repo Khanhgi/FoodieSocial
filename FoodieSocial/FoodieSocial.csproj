@@ -168,6 +168,7 @@
     </Compile>
     <Compile Include="Models\FoodieSocialContext.cs" />
     <Compile Include="Models\Friend.cs" />
+    <Compile Include="Models\HomePageViewModel.cs" />
     <Compile Include="Models\Post_comment.cs" />
     <Compile Include="Models\Post_like.cs" />
     <Compile Include="Models\sysdiagram.cs" />
@@ -210,6 +211,7 @@
     <Content Include="Content\Images\loginlogo.png" />
     <Content Include="Content\Images\shushi.jpg" />
     <Content Include="Content\Images\xx.jpg" />
+    <Content Include="Content\Javascript\PostSectionCreate.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -284,6 +286,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Post\Create.cshtml" />
     <Content Include="Views\Post\UploadImage.cshtml" />
+    <Content Include="Views\Home\_UserContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
