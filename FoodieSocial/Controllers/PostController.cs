@@ -6,6 +6,8 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Linq;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
@@ -48,8 +50,8 @@ namespace FoodieSocial.Controllers
                 // Lấy Profileid từ Session
                 int profileId = (int)Session["UserId"];
 
-                // Lấy thông tin người dùng từ bảng User_profile dựa trên Profileid
-                User_profile userProfile = fs.User_profile.FirstOrDefault(u => u.Id == profileId);
+                //// Lấy thông tin người dùng từ bảng User_profile dựa trên Profileid
+                //User_profile userProfile = fs.User_profile.FirstOrDefault(u => u.Id == profileId);
 
 
                 // Tạo đối tượng User_post
@@ -59,7 +61,7 @@ namespace FoodieSocial.Controllers
                     Writtentext = writtenText,
                     Mediaimage = fileName,
                     Profileid = profileId,
-                    User_profile = userProfile
+                    //User_profile = userProfile
                 };
 
                 // Thêm đối tượng User_post vào cơ sở dữ liệu

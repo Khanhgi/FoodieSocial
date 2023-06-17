@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<FoodieSocial.Models.PostViewModel>
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -38,163 +40,49 @@
 
         <div class="wrapper-scroll">
             <div id="posts-container" class="postContainer" style=" width: 100%">
-                <section class="postSection">
-                    <div class="box">
-                        <div class="wrapper">
+                @foreach (var post in Model)
+                {
+                    <section class="postSection">
+                        <div class="box">
+                            <div class="wrapper">
 
-                            <div class="header-wrap">
-                                <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
-                                <div class="title">
-                                    <span>@Session["UserName"]</span>
+                                <div class="header-wrap">
+                                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                                    <div class="title">
+                                        <span>@post.UserProfile.Name</span>
+                                    </div>
                                     <i class="fa-solid fa-x"></i>
                                 </div>
-                            </div>
-                            <div class="body-wrap">
-                                <img src="~/Content/Images/food.jpg" alt="">
-                            </div>
-                            <div class="body-title">
-                                <div class="wrapper-body">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <i class="fa-regular fa-comment"></i>
+                                <div class="body-wrap">
+                                    <img src="~/Images/@post.UserPost.Mediaimage" alt="">
                                 </div>
-                                <div class="wrapper-body">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                <div class="body-title">
+                                    <div class="wrapper-body">
+                                        <i class="fa-regular fa-heart"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                    </div>
+                                    <div class="wrapper-body">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="status-text" style="margin-top: 25px;">
-                                <span>
-                                    Welcome to Foodie Social
-                                </span>
-                            </div>
-                        </div>
-                        <div class="sm-title">
-                            <div class="center-title">
-                                <div class="input-wrapper">
-                                    <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
-                                    <i class="fa-regular fa-paper-plane"></i>
+                                <div class="status-text" style="margin-top: 25px;">
+                                    <span>
+                                       @post.UserPost.Writtentext
+                                    </span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <hr />
-
-
-                <section class="postSection">
-                    <div class="wrapper">
-                        <div class="header-wrap">
-                            <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
-                            <div class="title">
-                                <span>@Session["UserName"]</span>
-                                <i class="fa-solid fa-x"></i>
+                            <div class="sm-title">
+                                <div class="center-title">
+                                    <div class="input-wrapper">
+                                        <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="body-wrap">
-                            <img src="~/Content/Images/food2.jpg" alt="">
-                        </div>
-                        <div class="body-title">
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-regular fa-comment"></i>
-                            </div>
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </div>
-                        </div>
-                        <div class="status-text" style="margin-top: 25px;">
-                            <span>
-                                Welcome to Foodie Social
-                            </span>
-                        </div>
-                    </div>
-                    <div class="sm-title">
-                        <div class="center-title">
-                            <div class="input-wrapper">
-                                <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
-                                <i class="fa-regular fa-paper-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <hr />
-
-
-                <section class="postSection">
-                    <div class="wrapper">
-                        <div class="header-wrap">
-                            <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
-                            <div class="title">
-                                <span>@Session["UserName"]</span>
-                                <i class="fa-solid fa-x"></i>
-                            </div>
-                        </div>
-                        <div class="body-wrap">
-                            <img src="~/Content/Images/food3.jpg" alt="">
-                        </div>
-                        <div class="body-title">
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-regular fa-comment"></i>
-                            </div>
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </div>
-                        </div>
-                        <div class="status-text" style="margin-top: 25px;">
-                            <span>
-                                Bot chien from Vietnam
-                            </span>
-                        </div>
-                    </div>
-                    <div class="sm-title">
-                        <div class="center-title">
-                            <div class="input-wrapper">
-                                <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
-                                <i class="fa-regular fa-paper-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <hr />
-
-
-                <section class="postSection">
-                    <div class="wrapper">
-                        <div class="header-wrap">
-                            <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
-                            <div class="title">
-                                <span>@Session["UserName"]</span>
-                                <i class="fa-solid fa-x"></i>
-                            </div>
-                        </div>
-                        <div class="body-wrap">
-                            <img src="~/Content/Images/banhmi.jpeg" alt="">
-                        </div>
-                        <div class="body-title">
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-regular fa-comment"></i>
-                            </div>
-                            <div class="wrapper-body">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </div>
-                        </div>
-                        <div class="status-text" style="margin-top: 25px;">
-                            <span>
-                                Banh mi from Vietnam
-                            </span>
-                        </div>
-                    </div>
-                    <div class="sm-title">
-                        <div class="center-title">
-                            <div class="input-wrapper">
-                                <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
-                                <i class="fa-regular fa-paper-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <hr />
+                    </section>
+                    <hr />
+                }
 
             </div>
         </div>

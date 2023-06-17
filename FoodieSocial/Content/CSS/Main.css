@@ -41,10 +41,11 @@ section {
         font-size: 1.3rem;
     }
 
-    .header-wrap .title i {
+    .header-wrap  i {
         font-size: 1.5rem;
         position: relative;
         left: 18.7em;
+        top: 1.3rem;
         cursor: pointer;
     }
 

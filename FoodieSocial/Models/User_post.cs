@@ -25,6 +25,8 @@ namespace FoodieSocial.Models
         [StringLength(255)]
         public string Mediaimage { get; set; }
 
+        public int? Likecount { get; set; }
+
         public DateTime Createdate { get; set; }
 
         public DateTime? Postupdate { get; set; }

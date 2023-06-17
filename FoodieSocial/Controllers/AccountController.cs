@@ -186,8 +186,9 @@ namespace FoodieSocial.Controllers
 
                 fs.SaveChanges();
 
-                // Chuyển hướng người dùng đến trang thông tin người dùng sau khi đã cập nhật thành công
                 Session["UserId"] = us.Id;
+
+                // Chuyển hướng người dùng đến trang thông tin người dùng sau khi đã cập nhật thành công
                 return RedirectToAction("Detail", "Account", new { id = us.Id });
             }
 

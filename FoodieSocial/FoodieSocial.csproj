@@ -168,7 +168,7 @@
     </Compile>
     <Compile Include="Models\FoodieSocialContext.cs" />
     <Compile Include="Models\Friend.cs" />
-    <Compile Include="Models\HomePageViewModel.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\Post_comment.cs" />
     <Compile Include="Models\Post_like.cs" />
     <Compile Include="Models\sysdiagram.cs" />
@@ -284,7 +284,6 @@
     <Content Include="Views\Friend\CancelFriendRequest.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Post\Create.cshtml" />
     <Content Include="Views\Post\UploadImage.cshtml" />
     <Content Include="Views\Home\_UserContact.cshtml" />
   </ItemGroup>
