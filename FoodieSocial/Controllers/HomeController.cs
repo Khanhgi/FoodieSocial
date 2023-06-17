@@ -17,7 +17,7 @@ namespace FoodieSocial.Controllers
         {
             List<PostViewModel> postViewModels = new List<PostViewModel>();
 
-            using (var fs = new FoodieSocialContext()) // Thay YourDbContext() bằng context của bạn
+            using (var fs = new FoodieSocialContext()) 
             {
                 var userPosts = fs.User_post.ToList();
                 var userProfileIds = userPosts.Select(post => post.Profileid).ToList();
@@ -33,6 +33,10 @@ namespace FoodieSocial.Controllers
                         UserProfile = userProfile
                     };
                     postViewModels.Add(postViewModel);
+
+                    // Tính toán số lượt yêu thích (like count) cho mỗi bài post
+                    var likeCount = fs.Post_like.Count(l => l.Postid == post.Id);
+                    postViewModel.Likecount = likeCount;
                 }
                 postViewModels.Reverse();
             }

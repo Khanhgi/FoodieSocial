@@ -9,5 +9,6 @@ namespace FoodieSocial.Models
     {
         public User_profile UserProfile { get; set; }
         public User_post UserPost { get; set; }
+        public int Likecount { get; set;}
     }
 }

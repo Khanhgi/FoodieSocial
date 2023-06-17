@@ -59,6 +59,7 @@
                                 <div class="body-title">
                                     <div class="wrapper-body">
                                         <i class="fa-regular fa-heart"></i>
+                                        <span class="like-count">@post.Likecount</span>
                                         <i class="fa-regular fa-comment"></i>
                                     </div>
                                     <div class="wrapper-body">
@@ -67,7 +68,7 @@
                                 </div>
                                 <div class="status-text" style="margin-top: 25px;">
                                     <span>
-                                       @post.UserPost.Writtentext
+                                        @post.UserPost.Writtentext
                                     </span>
                                 </div>
                             </div>
@@ -93,6 +94,33 @@
             @RenderPage("_UserContact.cshtml")
         </div>
     </div>
+
+    @*=========================================== JS ===========================================*@
+    <script>
+        $(document).ready(function () {
+            $('.fa-heart').click(function () {
+                var postIndex = $(this).closest('.postSection').index();
+                var likeCountElement = $(this).siblings('.like-count');
+                var likeCount = parseInt(likeCountElement.text());
+
+                // Toggle class "liked" để thay đổi màu của biểu tượng trái tim
+                $(this).toggleClass('liked');
+
+                // Tăng hoặc giảm giá trị likeCount tương ứng
+                if ($(this).hasClass('liked')) {
+                    likeCount++;
+                } else {
+                    likeCount--;
+                }
+
+                // Cập nhật số lượt thích trong mảng postViewModels
+                postViewModels[postIndex].Likecount = likeCount;
+
+                // Cập nhật hiển thị số lượt thích trên giao diện
+                likeCountElement.text(likeCount);
+            });
+        });
+    </script>
 
 </body>
 </html>

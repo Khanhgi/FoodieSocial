@@ -88,6 +88,14 @@ section {
         margin: 0 1rem;
     }
 
+    .wrapper-body i.fa-regular.fa-heart{
+        color: black;
+    }
+
+        .wrapper-body i.fa-regular.fa-heart.liked {
+            color: red; /* Màu đỏ khi biểu tượng trái tim được nhấp vào */
+        }
+
 .center-title {
     text-align: center;
 }
