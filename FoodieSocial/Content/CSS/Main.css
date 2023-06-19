@@ -132,14 +132,18 @@ section {
     justify-content: center;
 }
 
-.postContainer hr{
-    width: 73%;
-    margin: 25px auto;
+.postSection hr{
+    width: 28em;
+    margin: 3rem auto;
 }
 
-.postSection:nth-child(even) {
-    margin-top: 1.3rem;
+.postSection{
+    height: 47rem;
 }
+
+/*.postSection:nth-child(even) {
+    margin-top: 0.5rem;
+}*/
 
 
 /*css*/

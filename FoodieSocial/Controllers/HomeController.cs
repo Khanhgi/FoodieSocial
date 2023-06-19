@@ -33,10 +33,6 @@ namespace FoodieSocial.Controllers
                         UserProfile = userProfile
                     };
                     postViewModels.Add(postViewModel);
-
-                    // Tính toán số lượt yêu thích (like count) cho mỗi bài post
-                    var likeCount = fs.Post_like.Count(l => l.Postid == post.Id);
-                    postViewModel.Likecount = likeCount;
                 }
                 postViewModels.Reverse();
             }
@@ -44,39 +40,44 @@ namespace FoodieSocial.Controllers
             return View(postViewModels);
         }
 
-        //public ActionResult Index()
+        //public ActionResult LikePost(int postId, bool isLiked)
         //{
-        //    List<User_post> userPosts;
-        //    using (var fs = new FoodieSocialContext())
+        //    var userPost = fs.User_post.Find(postId);
+        //    if (userPost != null)
         //    {
-        //        userPosts = fs.User_post.ToList();
+        //        if (isLiked)
+        //        {
+        //            userPost.Likecount++; // Tăng giá trị Likecount của bài post lên 1
+        //        }
+        //        else
+        //        {
+        //            if (userPost.Likecount > 0) // Kiểm tra giá trị Likecount trước khi giảm nó
+        //            {
+        //                userPost.Likecount--; // Giảm giá trị Likecount của bài post xuống 1
+        //            }
+        //        }
+
+        //        fs.SaveChanges();
         //    }
 
-        //    return View(userPosts);
+        //    return RedirectToAction("Index");
         //}
 
+        public JsonResult DeletePost(int postId)
+        {
+            var userPost = fs.User_post.Find(postId);
+            if (userPost != null)
+            {
+                fs.User_post.Remove(userPost);
+                fs.SaveChanges();
+
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
+        }
 
 
-        //public List<User_profile> GetUser_Profiles()
-        //{
-        //    List<User_profile> profiles = fs.User_profile.ToList();
-        //    return profiles;
-        //}
-
-        //public List<User_post> GetUser_Posts()
-        //{
-        //    List<User_post> posts = fs.User_post.ToList();
-        //    return posts;
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        fs.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
 
         public ActionResult About()
         {
