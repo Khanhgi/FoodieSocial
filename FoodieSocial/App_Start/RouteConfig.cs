@@ -18,11 +18,13 @@ namespace FoodieSocial
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "SaveAvatar",
-                url: "Account/SaveAvatar",
-                defaults: new { controller = "Account", action = "SaveAvatar" }
-            );
+
+            //routes.MapRoute(
+            //    name: "PostLike",
+            //    url: "Home/Like",
+            //    defaults: new { controller = "Home", action = "Like" }
+            //);
+
             routes.MapRoute(
                 name: "FriendRequests",
                 url: "Friend/FriendRequests",

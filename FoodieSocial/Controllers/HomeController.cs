@@ -40,28 +40,23 @@ namespace FoodieSocial.Controllers
             return View(postViewModels);
         }
 
-        //public ActionResult LikePost(int postId, bool isLiked)
+        //[HttpPost]
+        //public ActionResult Like(int postId)
         //{
-        //    var userPost = fs.User_post.Find(postId);
-        //    if (userPost != null)
+        //    // Tìm bài đăng theo postId trong cơ sở dữ liệu và tăng số lượt like lên 1
+        //    using (var fs = new FoodieSocialContext())
         //    {
-        //        if (isLiked)
+        //        var post = fs.User_post.FirstOrDefault(p => p.Id == postId);
+        //        if (post != null)
         //        {
-        //            userPost.Likecount++; // Tăng giá trị Likecount của bài post lên 1
+        //            post.Likecount += 1;
+        //            fs.SaveChanges();
+        //            return Json(new { success = true });
         //        }
-        //        else
-        //        {
-        //            if (userPost.Likecount > 0) // Kiểm tra giá trị Likecount trước khi giảm nó
-        //            {
-        //                userPost.Likecount--; // Giảm giá trị Likecount của bài post xuống 1
-        //            }
-        //        }
-
-        //        fs.SaveChanges();
         //    }
-
-        //    return RedirectToAction("Index");
+        //    return Json(new { success = false });
         //}
+
 
         public JsonResult DeletePost(int postId)
         {

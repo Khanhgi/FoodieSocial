@@ -29,9 +29,6 @@
                             if (result.success) {
                                 // Xóa phần tử post khỏi giao diện
                                 postSection.remove();
-
-                                  // Xóa thẻ <hr> trước phần tử post nếu nó tồn tại
-                            postSection.prev('hr').remove();
                             }
                         }
                     });
@@ -39,7 +36,6 @@
             });
         });
     </script>
-
 </head>
 <body>
 
@@ -65,55 +61,54 @@
 
         @*=========================================== Post Interface ===========================================*@
 
-        <div class="wrapper-scroll">
-            <div id="posts-container" class="postContainer" style=" width: 100%">
-                @foreach (var post in Model)
-                {
-                    <section class="postSection" data-post-id="@post.UserPost.Id">
-                        <div class="box">
-                            <div class="wrapper">
-
-                                <div class="header-wrap">
-                                    <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
-                                    <div class="title">
-                                        <span>@post.UserProfile.Name</span>
-                                    </div>
-                                    <i class="fa-solid fa-x"></i>
+    <div class="wrapper-scroll">
+        <div id="posts-container" class="postContainer" style="width: 100%">
+            @foreach (var post in Model)
+            {
+                <section class="postSection" data-post-id="@post.UserPost.Id">
+                    <div class="box">
+                        <div class="wrapper">
+                            <div class="header-wrap">
+                                <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
+                                <div class="title">
+                                    <span>@post.UserProfile.Name</span>
                                 </div>
-                                <div class="body-wrap">
-                                    <img src="~/Images/@post.UserPost.Mediaimage" alt="">
+                                <i class="fa-solid fa-x"></i>
+                            </div>
+                            <div class="body-wrap">
+                                <img src="~/Images/@post.UserPost.Mediaimage" alt="">
+                            </div>
+                            <div class="body-title">
+                                <div class="wrapper-body">
+                                    <i class="fa-regular fa-heart like-button" data-post-id="@post.UserPost.Id"></i>
+                                    <span class="like-count">@post.UserPost.Likecount</span>
+                                    <i class="fa-regular fa-comment"></i>
                                 </div>
-                                <div class="body-title">
-                                    <div class="wrapper-body">
-                                        <i class="fa-regular fa-heart"></i>
-                                        <span class="like-count">@post.UserPost.Likecount</span>
-                                        <i class="fa-regular fa-comment"></i>
-                                    </div>
-                                    <div class="wrapper-body">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="status-text" style="margin-top: 25px;">
-                                    <span>
-                                        @post.UserPost.Writtentext
-                                    </span>
+                                <div class="wrapper-body">
+                                    <i class="fa-regular fa-bookmark"></i>
                                 </div>
                             </div>
-                            <div class="sm-title">
-                                <div class="center-title">
-                                    <div class="input-wrapper">
-                                        <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
-                                        <i class="fa-regular fa-paper-plane"></i>
-                                    </div>
+                            <div class="status-text" style="margin-top: 25px;">
+                                <span>
+                                    @post.UserPost.Writtentext
+                                </span>
+                            </div>
+                        </div>
+                        <div class="sm-title">
+                            <div class="center-title">
+                                <div class="input-wrapper">
+                                    <input style="height: 45px; border-radius: 10px;" placeholder="Add comment..." />
+                                    <i class="fa-regular fa-paper-plane"></i>
                                 </div>
                             </div>
                         </div>
-                        <hr />
-                    </section>
-                }
-
-            </div>
+                    </div>
+                    <hr />
+                </section>
+            }
         </div>
+    </div>
+
 
         @*=========================================== User Contact ===========================================*@
 

@@ -35,6 +35,7 @@ section {
     display: flex;
     justify-content: flex-start;
     padding: 0 14%;
+    position: relative;
 }
 
     .header-wrap .title span{
@@ -48,8 +49,7 @@ section {
         top: 1.3rem;
         cursor: pointer;
     }
-
-
+    
 .logo {
     border-radius: 50%;
 }
@@ -86,6 +86,11 @@ section {
 
     .wrapper-body i + i {
         margin: 0 1rem;
+    }
+
+    .wrapper-body i.fa-regular.fa-comment{
+        position: relative;
+        left: 1rem;
     }
 
     .wrapper-body i.fa-regular.fa-heart{
@@ -138,7 +143,7 @@ section {
 }
 
 .postSection{
-    height: 48rem;
+    height: 47rem;
 }
 
 /*.postSection:nth-child(even) {

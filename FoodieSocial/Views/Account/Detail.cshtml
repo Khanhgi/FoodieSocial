@@ -22,6 +22,51 @@
         window.location.href = '/Account/EditProfile?id=' + userId;
     }
     </script>
+    @*<script>
+        $(document).ready(function () {
+            // Xử lý sự kiện khi nhấn vào nút "Send Friend Request"
+            $('#btnAddFriend').click(function () {
+                var friendId = $(this).data('friend-id');
+
+                // Gửi yêu cầu AJAX để gửi lời mời kết bạn
+                $.ajax({
+                    url: '/Friend/SendFriendRequest',
+                    type: 'POST',
+                    data: { receiverId: friendId },
+                    success: function (result) {
+                        // Thay đổi trạng thái của các nút
+                        $('#btnAddFriend').hide();
+                        $('#btnCancelRequest').show();
+                        alert('Friend request sent successfully.');
+                    },
+                    error: function () {
+                        alert('Error occurred while sending friend request.');
+                    }
+                });
+            });
+
+            // Xử lý sự kiện khi nhấn vào nút "Cancel Request"
+            $('#btnCancelRequest').click(function () {
+                var friendId = $(this).data('friend-id');
+
+                // Gửi yêu cầu AJAX để hủy lời mời kết bạn
+                $.ajax({
+                    url: '/Friend/CancelFriendRequest',
+                    type: 'POST',
+                    data: { receiverId: friendId },
+                    success: function (result) {
+                        // Thay đổi trạng thái của các nút
+                        $('#btnAddFriend').show();
+                        $('#btnCancelRequest').hide();
+                        alert('Friend request canceled successfully.');
+                    },
+                    error: function () {
+                        alert('Error occurred while canceling friend request.');
+                    }
+                });
+            });
+        });
+    </script>*@
 </head>
 <body>
     <section style="background-color: #fff; height: 100%; padding: 20px;">
