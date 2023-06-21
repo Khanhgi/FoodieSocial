@@ -36,6 +36,30 @@
             });
         });
     </script>
+    <script>
+        // Xử lý sự kiện click nút yêu thích
+        $('.like-button').on('click', function () {
+            var postId = $(this).data('post-id');
+            var likeCountElement = $(this).siblings('.like-count');
+
+            // Gửi yêu cầu yêu thích tới controller
+            $.ajax({
+                url: '/Home/Like',
+                type: 'POST',
+                data: { postId: postId },
+                success: function (response) {
+                    // Xử lý phản hồi từ server (nếu cần)
+                    // Ví dụ: Cập nhật lại số lượt yêu thích trên giao diện
+                    var likeCount = response.LikeCount;
+                    likeCountElement.text(likeCount);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi (nếu cần)
+                }
+            });
+        });
+
+    </script>
 </head>
 <body>
 

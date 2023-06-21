@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Dynamic;
+using Microsoft.AspNet.Identity;
 
 namespace FoodieSocial.Controllers
 {
@@ -36,42 +37,59 @@ namespace FoodieSocial.Controllers
                 }
                 postViewModels.Reverse();
             }
-
             return View(postViewModels);
         }
 
+
+        //// Action để xử lý yêu cầu yêu thích một bài viết
         //[HttpPost]
-        //public ActionResult Like(int postId)
+        //public ActionResult Like(int postId, int profileId)
         //{
-        //    // Tìm bài đăng theo postId trong cơ sở dữ liệu và tăng số lượt like lên 1
-        //    using (var fs = new FoodieSocialContext())
+        //    int profileid = (int)Session["UserId"];
+
+        //    // Kiểm tra xem bài viết có tồn tại không
+        //    var post = fs.User_post.FirstOrDefault(p => p.Id == postId);
+        //    if (post == null)
         //    {
-        //        var post = fs.User_post.FirstOrDefault(p => p.Id == postId);
-        //        if (post != null)
-        //        {
-        //            post.Likecount += 1;
-        //            fs.SaveChanges();
-        //            return Json(new { success = true });
-        //        }
+        //        return HttpNotFound();
         //    }
-        //    return Json(new { success = false });
+
+        //    // Kiểm tra xem người dùng đã yêu thích bài viết này chưa
+        //    var existingLike = fs.Post_like.FirstOrDefault(pl => pl.Postid == postId && pl.Profileid == profileId);
+        //    if (existingLike != null)
+        //    {
+        //        // Người dùng đã yêu thích, không thực hiện gì cả (có thể xóa yêu thích nếu muốn)
+        //        return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang chủ hoặc nơi khác
+        //    }
+
+        //    // Tạo một yêu thích mới
+        //    var newLike = new Post_like
+        //    {
+        //        Postid = postId,
+        //        Profileid = profileId,
+        //        Likereaction = "like", 
+        //        Likecount = 0 // Số lượt thích ban đầu 
+        //    };
+
+        //    fs.Post_like.Add(newLike);
+        //    fs.SaveChanges();
+
+        //    return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang chủ hoặc nơi khác
         //}
 
-
         public JsonResult DeletePost(int postId)
-        {
-            var userPost = fs.User_post.Find(postId);
-            if (userPost != null)
             {
-                fs.User_post.Remove(userPost);
-                fs.SaveChanges();
+                var userPost = fs.User_post.Find(postId);
+                if (userPost != null)
+                {
+                    fs.User_post.Remove(userPost);
+                    fs.SaveChanges();
 
-                return Json(new { success = true });
+                    return Json(new { success = true });
+                }
+
+                return Json(new { success = false });
             }
-
-            return Json(new { success = false });
-        }
-
 
 
         public ActionResult About()

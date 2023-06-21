@@ -50,10 +50,6 @@ namespace FoodieSocial.Controllers
                 // Lấy Profileid từ Session
                 int profileId = (int)Session["UserId"];
 
-                //// Lấy thông tin người dùng từ bảng User_profile dựa trên Profileid
-                //User_profile userProfile = fs.User_profile.FirstOrDefault(u => u.Id == profileId);
-
-
                 // Tạo đối tượng User_post
                 User_post post = new User_post()
                 {
@@ -61,7 +57,6 @@ namespace FoodieSocial.Controllers
                     Writtentext = writtenText,
                     Mediaimage = fileName,
                     Profileid = profileId,
-                    //User_profile = userProfile
                 };
 
                 // Thêm đối tượng User_post vào cơ sở dữ liệu
@@ -71,80 +66,6 @@ namespace FoodieSocial.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
-
-        //// GET: Post/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: Post/Create
-        //[HttpPost]
-        //public ActionResult Create(User_post post, HttpPostedFileBase imageFile)
-        //{
-        //    try
-        //    {
-        //        // Lấy ProfileId từ session
-        //        int profileId = (int)Session["UserId"];
-
-        //        if (ModelState.IsValid)
-        //        {
-        //            // Set thời gian đăng
-        //            post.Createdate = DateTime.Now;
-
-        //            // Check if an image file was uploaded
-        //            if (imageFile != null && imageFile.ContentLength > 0)
-        //            {
-        //                // Save the image file to a local directory
-        //                string imagePath = SaveImage(imageFile);
-
-        //                // Set the Mediaimage property to the local image path
-        //                post.Mediaimage = imagePath;
-        //            }
-
-        //            post.User_profile = new User_profile { Id = profileId };
-
-        //            // Add the post to the database
-        //            fs.User_post.Add(post);
-        //            fs.SaveChanges();
-
-        //            return RedirectToAction("Index", "Home"); // Redirect to home page or any other desired page
-        //        }
-        //    }
-        //    catch (DbEntityValidationException ex)
-        //    {
-        //        // Xử lý lỗi kiểm tra dữ liệu không thành công
-        //        foreach (var validationErrors in ex.EntityValidationErrors)
-        //        {
-        //            foreach (var validationError in validationErrors.ValidationErrors)
-        //            {
-        //                Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
-        //            }
-        //        }
-        //        // Trả về View với thông báo lỗi hoặc xử lý khác tùy ý
-        //        return View(post);
-        //    }
-        //    return View(post);
-        //}
-
-        //private string SaveImage(HttpPostedFileBase imageFile)
-        //{
-        //    // Tạo tên tệp tin duy nhất
-        //    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-
-        //    // Đường dẫn đến thư mục "Images" trong dự án
-        //    string folderPath = Path.Combine(Server.MapPath("/Images/"));
-
-        //    // Đường dẫn đầy đủ của tệp tin ảnh
-        //    string imagePath = Path.Combine(folderPath, fileName);
-
-        //    // Lưu trữ tệp tin ảnh vào thư mục
-        //    imageFile.SaveAs(imagePath);
-
-        //    return imagePath;
-        //}
-
 
     }
 }

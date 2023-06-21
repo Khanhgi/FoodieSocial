@@ -289,6 +289,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Post\UploadImage.cshtml" />
     <Content Include="Views\Home\_UserContact.cshtml" />
+    <Content Include="Views\Home\EditPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
