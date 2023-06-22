@@ -84,8 +84,6 @@ namespace FoodieSocial.Controllers
                 fs.SaveChanges();
                 return RedirectToAction("Login", "Account");
             }
-
-
         }
 
         //================================================================== Login ==================================================================//
@@ -191,7 +189,6 @@ namespace FoodieSocial.Controllers
                 // Chuyển hướng người dùng đến trang thông tin người dùng sau khi đã cập nhật thành công
                 return RedirectToAction("Detail", "Account", new { id = us.Id });
             }
-
 
             // Nếu dữ liệu không hợp lệ, trả về lại view với đối tượng người dùng đã chỉnh sửa để hiển thị thông báo lỗi
             return this.EditProfile(id);

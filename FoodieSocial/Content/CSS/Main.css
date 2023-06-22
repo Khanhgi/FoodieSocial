@@ -42,14 +42,16 @@ section {
         font-size: 1.3rem;
     }
 
-    .header-wrap  i {
-        font-size: 1.5rem;
-        position: relative;
-        left: 18.7em;
-        top: 1.3rem;
+    .header-wrap .title {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-wrap i{
         cursor: pointer;
     }
-    
+
 .logo {
     border-radius: 50%;
 }
@@ -138,7 +140,7 @@ section {
 }
 
 .postSection hr{
-    width: 28em;
+    width: 29em;
     margin: 3rem auto;
 }
 

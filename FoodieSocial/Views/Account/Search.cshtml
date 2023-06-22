@@ -55,7 +55,7 @@
         }
         else if (ViewBag.HasSearch != null && ViewBag.HasSearch && Model.Count == 0)
         {
-            <p>Not found.</p>
+            <p class="not-found">Not found user.</p>
         }
     </div>
     <button class="main-page" onclick="location.href='@Url.Action("Index", "Home")'">Back to Main page</button>
@@ -117,6 +117,10 @@
             .user-card p {
                 margin-bottom: 0;
             }
+
+        .not-found{
+            color: red;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-wtsQCw4gPnRyWpjf+zqawwo0c+CDYftXowDij6eRiDBR+YIPBz4eEmtYk3p7Y5Cm" crossorigin="anonymous"></script>

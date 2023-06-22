@@ -38,9 +38,9 @@
 
                                             <div class="form-outline">
                                                 @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-lg", @autofocus = "autofocus", @placeholder = "Email" })
-                                                @ViewData["!empty"]
-                                                @ViewData["EmailExist"]
-                                                @ViewData["EmailWrong"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
+                                                <span class="error-message">@ViewData["EmailExist"]</span>
+                                                <span class="error-message">@ViewData["EmailWrong"]</span>
                                             </div>
 
                                         </div>
@@ -48,7 +48,7 @@
 
                                             <div class="form-outline">
                                                 @Html.TextBoxFor(model => model.Country, new { @class = "form-control form-control-lg", @placeholder = "Country" })
-                                                @ViewData["!empty"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
                                             </div>
 
                                         </div>
@@ -59,7 +59,7 @@
 
                                             <div class="form-outline datepicker w-100">
                                                 @Html.TextBoxFor(model => model.Date_of_birth, new { @class = "form-control form-control-lg", @placeholder = "Birth day" })
-                                                @ViewData["!empty"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
                                             </div>
 
                                         </div>
@@ -93,7 +93,7 @@
 
                                             <div class="form-outline">
                                                 @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-lg", @placeholder = "Name" })
-                                                @ViewData["!empty"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
                                             </div>
 
                                         </div>
@@ -101,8 +101,8 @@
 
                                             <div class="form-outline">
                                                 @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control form-control-lg", @placeholder = "Phone number" })
-                                                @ViewData["!empty"]
-                                                @ViewData["NumWrong"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
+                                                <span class="error-message">@ViewData["NumWrong"]</span>
                                             </div>
 
                                         </div>
@@ -111,8 +111,9 @@
 
                                             <div class="form-outline">
                                                 @Html.PasswordFor(model => model.PassWord, new { @class = "form-control form-control-lg", @placeholder = "Password" })
-                                                @ViewData["!empty"]
-                                                @ViewData["PassWordExist"]
+                                                <span class="error-message">@ViewData["!empty"]</span>
+                                                @*<span class="error-message"> @ViewData["PasswordWrong"] </span>*@
+                                                <span class="error-message">@ViewData["PassWordExist"]</span>
                                             </div>
 
                                         </div>
@@ -155,6 +156,11 @@
         .card-registration .select-arrow {
             top: 13px;
         }
+
+        .error-message{
+            color: red;
+        }
+
     </style>
 </body>
 </html>

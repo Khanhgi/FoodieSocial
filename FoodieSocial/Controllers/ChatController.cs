@@ -22,16 +22,6 @@ namespace FoodieSocial.Controllers
         [HttpPost]
         public ActionResult Chat(FormCollection collection)
         {
-            var matkhau = collection["PassWord"];
-            var email = collection["Email"];
-
-            User_profile us = fs.User_profile.FirstOrDefault(x => x.Email== email && x.PassWord == matkhau);
-            if (us != null)
-            {
-                ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
-                Session["UserName"] = us.Name;
-                ViewBag.UserName = us.Name;
-            }
             return View();
         }
     }

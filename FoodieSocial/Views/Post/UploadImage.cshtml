@@ -17,13 +17,13 @@
     @using (Html.BeginForm("UploadImage", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
 
-        @Html.TextBoxFor(model => model.Writtentext, new{@class = "form-control form-control-lg", @placeholder = "Input your content", @style = "position: relative; bottom: 10px;"})
+        @Html.TextBoxFor(model => model.Writtentext, new{@class = "form-control form-control-lg", @placeholder = "Input your content", @style = "position: relative; bottom: 10px; border: 1px solid;" })
 
         @Html.TextBox("fileImage", "", new { type = "file", accept = "image/*" })
 
         <br />
 
-        <img id="preview" src="#" width="150" height="100" class="hidden" />
+        <img id="preview" src="#" class="hidden" />
 
         <br />
 
@@ -64,8 +64,8 @@
         }
 
         #preview {
-            width: 100%;
-            height: 200px;
+            width: 30rem;
+            height: 25rem;
             border: 1px solid black;
             display: flex;
             justify-content: center;

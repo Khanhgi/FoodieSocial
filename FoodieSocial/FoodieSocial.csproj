@@ -202,7 +202,10 @@
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootstrap\mdbbootstrap\mdb.min.css" />
+    <Content Include="Content\bootstrap\mdbbootstrap\mdb.min.js" />
     <Content Include="Content\CSS\Main.css" />
+    <Content Include="Content\CSS\Popupmodal.css" />
     <Content Include="Content\CSS\responsiveAll_Layout.css" />
     <Content Include="Content\CSS\User-contact.css" />
     <Content Include="Content\CSS\_Sidebar.css" />
@@ -214,7 +217,7 @@
     <Content Include="Content\Images\loginlogo.png" />
     <Content Include="Content\Images\shushi.jpg" />
     <Content Include="Content\Images\xx.jpg" />
-    <Content Include="Content\Javascript\PostSectionCreate.js" />
+    <Content Include="Content\Javascript\Popupmodal.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -36,30 +36,6 @@
             });
         });
     </script>
-    <script>
-        // Xử lý sự kiện click nút yêu thích
-        $('.like-button').on('click', function () {
-            var postId = $(this).data('post-id');
-            var likeCountElement = $(this).siblings('.like-count');
-
-            // Gửi yêu cầu yêu thích tới controller
-            $.ajax({
-                url: '/Home/Like',
-                type: 'POST',
-                data: { postId: postId },
-                success: function (response) {
-                    // Xử lý phản hồi từ server (nếu cần)
-                    // Ví dụ: Cập nhật lại số lượt yêu thích trên giao diện
-                    var likeCount = response.LikeCount;
-                    likeCountElement.text(likeCount);
-                },
-                error: function (xhr, status, error) {
-                    // Xử lý lỗi (nếu cần)
-                }
-            });
-        });
-
-    </script>
 </head>
 <body>
 
@@ -96,8 +72,8 @@
                                 <img src="~/Content/Images/avadefault.jpg" alt="" class="logo" style="width: 35px; height: 35px;">
                                 <div class="title">
                                     <span>@post.UserProfile.Name</span>
+                                    <i class="fa-solid fa-x"></i>
                                 </div>
-                                <i class="fa-solid fa-x"></i>
                             </div>
                             <div class="body-wrap">
                                 <img src="~/Images/@post.UserPost.Mediaimage" alt="">
